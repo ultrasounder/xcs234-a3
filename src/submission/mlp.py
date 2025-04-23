@@ -54,6 +54,6 @@ def build_mlp(input_size, output_size, n_layers, size):
     modules.append(nn.Linear(in_features, output_size)) 
     
     # combine the modules into a sequential model
-    model = nn.Sequential(*modules)
+    return nn.Sequential(*modules)
     
     ### END CODE HERE ###
