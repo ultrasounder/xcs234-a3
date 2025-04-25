@@ -97,6 +97,30 @@ class PolicyGradient(object):
                you can call the parameters() method to get its parameters.
         """
         ### START CODE HERE ###
+        #1. Create  a network using build_mlp. It should map vectors of size
+        #   self.observation_dim to vectors of size self.action_dim, and use       
+        #   the number of layers and layer size from self.config
+        self.network = build_mlp(
+            input_size=self.observation_dim,
+            output_size=self.action_dim,
+            n_layers=self.config["hyper_params"]["n_layers"],
+            size=self.config["hyper_params"]["layer_size"],
+        )
+        # 2. Assign the created network to the correct device.
+        self.network = self.network.to(self.device)
+        
+        # 3. Instantiate a CategoricalPolicy or GaussianPolicy based on discrete action space or continuous action space
+        
+        if self.discrete:
+            self.policy = CategoricalPolicy(self.network, self.device)
+        else:
+            self.policy = GaussianPolicy(self.network, self.action_dim, self.device)
+        
+        # 4. Create an Adam optimizer for the policy, with learning rate self.lr
+        self.optimizer = torch.optim.Adam(
+            self.policy.parameters(),
+            lr=self.lr,
+        )   
         ### END CODE HERE ###
 
     def init_averages(self):
@@ -219,8 +243,23 @@ class PolicyGradient(object):
         for path in paths:
             rewards = path["reward"]
             ### START CODE HERE ###
+            # Get the discount factor from the config file
+            gamma = self.config["hyper_params"]["gamma"]
+            ## Initialize the returns array with zeros
+            path_length = len(rewards)
+            path_returns = np.zeros_like(rewards)
+            
+            # calculate the returns by working backwards from the end of the path
+            # This is a more efficient way to calculate the returns than using a forward loop
+            # because it avoids the need to calculate the power of gamma for each step
+            # and instead uses a cumulative product.
+            future_return = 0
+            for t in reversed(range(path_length)):
+                future_return = rewards[t] + gamma * future_return
+                path_returns[t] = future_return
+            
             ### END CODE HERE ###
-            all_returns.append(returns)
+            all_returns.append(path_returns)
         returns = np.concatenate(all_returns)
 
         return returns
@@ -243,6 +282,13 @@ class PolicyGradient(object):
         This function is called only if self.config["model_training"]["normalize_advantage"] is True.
         """
         ### START CODE HERE ###
+        # calculate the mean and standard deviation of the advantages
+        advantages_mean = np.mean(advantages)  
+        # calculate the standard deviation of the advantages
+        std = np.std(advantages)
+        # normalize the advantages
+        # This will give us a mean of 0 and standard deviation of 1
+        normalized_advantages = (advantages - advantages_mean) / std
         ### END CODE HERE ###
         return normalized_advantages
 
@@ -292,10 +338,27 @@ class PolicyGradient(object):
             PyTorch optimizers will try to minimize the loss you compute, but you
             want to maximize the policy's performance.
         """
+        
+        ### START CODE HERE ###
         observations = np2torch(observations, device=self.device)
         actions = np2torch(actions, device=self.device)
         advantages = np2torch(advantages, device=self.device)
-        ### START CODE HERE ###
+        
+        # reset gradients from previous step
+        self.optimizer.zero_grad()
+        # calculate the action distribution for the observations
+        action_distribution = self.policy.action_distribution(observations)
+        # calculate the log probabilities of the actions that were taken
+        log_probs = action_distribution.log_prob(actions)
+        # calculate the loss as the negative of the product of log probabilities and advantages
+        # this is the policy gradient loss
+        loss = -torch.mean(log_probs * advantages)
+        # perform backpropagation to compute gradients
+        loss.backward() 
+        # update the policy parameters using the optimizer
+        self.optimizer.step()
+        
+        
         ### END CODE HERE ###
 
     def train(self):

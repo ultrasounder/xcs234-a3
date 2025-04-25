@@ -63,6 +63,13 @@ class BasePolicy(ABC):
         """
         observations = np2torch(observations, device=self.device)
         ### START CODE HERE ###
+        # Get the distribution over actions given the observations
+        action_distribution = self.action_distribution(observations)
+        # Sample actions from the distribution
+        sampled_actions_tensor = action_distribution.sample()
+        # Convert the sampled actions to numpy array
+        sampled_actions = sampled_actions_tensor.cpu().numpy()
+        
         ### END CODE HERE ###
         return sampled_actions
 
@@ -89,6 +96,10 @@ class CategoricalPolicy(BasePolicy, nn.Module):
             categorical distributions in Pytorch
         """
         ### START CODE HERE ###
+        # Pass the observations through the network to get the logits
+        logits = self.network(observations)
+        # Create a categorical distribution using the logits
+        distribution = torch.distributions.Categorical(logits=logits)
         ### END CODE HERE ###
         return distribution
 
@@ -118,6 +129,9 @@ class GaussianPolicy(BasePolicy, nn.Module):
         self.network = network
         self.device = device
         ### START CODE HERE ###
+        # Create a learnable parameter for log_std with initial value of 0
+    # This corresponds to an initial std of 1 (since exp(0) = 1)
+        self.log_std = nn.Parameter(torch.zeros(action_dim).to(device))
         ### END CODE HERE ###
 
     def std(self):
@@ -130,6 +144,8 @@ class GaussianPolicy(BasePolicy, nn.Module):
             It can be computed from self.log_std
         """
         ### START CODE HERE ###
+        # Convert from log space to standard deviation using exponential function
+        std = torch.exp(self.log_std)
         ### END CODE HERE ###
         return std
 
@@ -153,5 +169,18 @@ class GaussianPolicy(BasePolicy, nn.Module):
             https://pytorch.org/docs/stable/distributions.html
         """
         ### START CODE HERE ###
+        # Get the mean from the network
+        means = self.network(observations)
+        # Get the standard deviation from the log_std parameter
+        stds = self.std()
+        # create a batch appropriate scale_tril(lower triangular matrix) for the multivariate normal distribution
+        # First, expand the stds to match the batch size of the means
+        batch_size = means.size(0)
+        batch_stds = stds.expand(means.size(0), -1)
+        
+        # create a diagonal covariance matrix using the stds
+        scale_tril = torch.diag_embed(batch_stds)
+        # Create a multivariate normal distribution with the means and scale_tril
+        distribution = torch.distributions.MultivariateNormal(loc=means, scale_tril=scale_tril)
         ### END CODE HERE ###
         return distribution

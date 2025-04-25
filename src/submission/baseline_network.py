@@ -34,6 +34,17 @@ class BaselineNetwork(nn.Module):
                 self.device = torch.device("mps")
         print(f"Running Baseline model on device {self.device}")
         ### START CODE HERE ###
+        self.network = build_mlp(
+            input_size=self.env.observation_space.shape[0],
+            output_size=1,
+            n_layers=self.config["hyper_params"]["n_layers"],
+            size=self.config["hyper_params"]["layer_size"],
+        ).to(self.device)
+        
+        self.optimizer = torch.optim.Adam(
+            self.network.parameters(),
+            lr=self.lr,
+        )
         ### END CODE HERE ###
 
     def forward(self, observations):
@@ -55,6 +66,12 @@ class BaselineNetwork(nn.Module):
             (which will be returned).
         """
         ### START CODE HERE ###
+        # Run observations through the network
+        output = self.network(observations)
+        # Squeeze the output to make it 1-dimensional 
+        # Squeeze to convert from [batch size, 1] to [batch size]
+        # This removes the redundant dimension since wer'e outputting a single value for each observation
+        output = output.squeeze()
         ### END CODE HERE ###
         assert output.ndim == 1
         return output
@@ -87,6 +104,12 @@ class BaselineNetwork(nn.Module):
         """
         observations = np2torch(observations, device=self.device)
         ### START CODE HERE ###
+        # Calculates advantage estimate as the difference between returns and baseline values
+        baseline_values = self.forward(observations)
+        # convert baseline values to numpy array
+        baseline_values_np = baseline_values.cpu().detach().numpy()
+        # calculate advatage values by subtracting baseline values from returns
+        advantages = returns - baseline_values_np
         ### END CODE HERE ###
         return advantages
 
@@ -106,4 +129,14 @@ class BaselineNetwork(nn.Module):
         returns = np2torch(returns, device=self.device)
         observations = np2torch(observations, device=self.device)
         ### START CODE HERE ###
+        # clear gradients from previous step
+        self.optimizer.zero_grad()
+        # calculate the baseline values for the observations
+        baseline_values = self.forward(observations)
+        # calculate the loss using MSE loss function
+        loss = nn.MSELoss()(baseline_values, returns)
+        # backpropagate the loss
+        loss.backward()
+        # step the optimizer to update the weights
+        self.optimizer.step()
         ### END CODE HERE ###
