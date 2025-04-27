@@ -97,7 +97,11 @@ class CategoricalPolicy(BasePolicy, nn.Module):
         """
         ### START CODE HERE ###
         # Pass the observations through the network to get the logits
+        # make sure the observations are on the correct device
+        observations = observations.to(self.device)
         logits = self.network(observations)
+        # Move logits to the same device as observations to ensure compatibility with actions
+        logits = logits.to(observations.device)
         # Create a categorical distribution using the logits
         distribution = torch.distributions.Categorical(logits=logits)
         ### END CODE HERE ###
@@ -169,10 +173,16 @@ class GaussianPolicy(BasePolicy, nn.Module):
             https://pytorch.org/docs/stable/distributions.html
         """
         ### START CODE HERE ###
+        observations_device = observations.device  # Remember original device
+        # Ensure the observations are on the correct device
+        observations = observations.to(self.device)
         # Get the mean from the network
         means = self.network(observations)
         # Get the standard deviation from the log_std parameter
         stds = self.std()
+        # Move results back to the original observations device
+        means = means.to(observations_device)
+        stds = stds.to(observations_device)
         # create a batch appropriate scale_tril(lower triangular matrix) for the multivariate normal distribution
         # First, expand the stds to match the batch size of the means
         batch_size = means.size(0)
