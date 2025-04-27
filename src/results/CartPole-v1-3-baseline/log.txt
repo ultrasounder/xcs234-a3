@@ -1,0 +1,117 @@
+2025-04-26 22:44:00,700:INFO: Average reward: 21.26 +/- 0.81
+2025-04-26 22:44:05,720:INFO: Average reward: 28.60 +/- 1.32
+2025-04-26 22:44:10,580:INFO: Average reward: 41.48 +/- 2.17
+2025-04-26 22:44:15,688:INFO: Average reward: 57.64 +/- 4.13
+2025-04-26 22:44:20,783:INFO: Average reward: 60.94 +/- 3.63
+2025-04-26 22:44:25,896:INFO: Average reward: 95.59 +/- 6.52
+2025-04-26 22:44:25,897:INFO: Recording...
+2025-04-26 22:44:31,845:INFO: Average reward: 154.08 +/- 7.73
+2025-04-26 22:44:36,704:INFO: Average reward: 163.17 +/- 7.65
+2025-04-26 22:44:41,661:INFO: Average reward: 157.48 +/- 8.11
+2025-04-26 22:44:46,355:INFO: Average reward: 143.89 +/- 6.65
+2025-04-26 22:44:51,322:INFO: Average reward: 123.22 +/- 3.37
+2025-04-26 22:44:56,135:INFO: Average reward: 101.13 +/- 5.02
+2025-04-26 22:44:56,135:INFO: Recording...
+2025-04-26 22:45:01,284:INFO: Average reward: 76.04 +/- 3.37
+2025-04-26 22:45:06,213:INFO: Average reward: 104.50 +/- 2.71
+2025-04-26 22:45:11,063:INFO: Average reward: 124.94 +/- 2.44
+2025-04-26 22:45:15,847:INFO: Average reward: 151.92 +/- 3.03
+2025-04-26 22:45:20,662:INFO: Average reward: 171.78 +/- 4.45
+2025-04-26 22:45:25,703:INFO: Average reward: 192.20 +/- 2.41
+2025-04-26 22:45:25,703:INFO: Recording...
+2025-04-26 22:45:31,391:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:36,306:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:41,180:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:46,126:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:50,987:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:55,871:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:45:55,871:INFO: Recording...
+2025-04-26 22:46:01,501:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:06,533:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:11,412:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:16,392:INFO: Average reward: 194.35 +/- 5.51
+2025-04-26 22:46:21,257:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:26,208:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:26,208:INFO: Recording...
+2025-04-26 22:46:32,022:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:37,070:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:41,892:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:46,707:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:51,609:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:56,547:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:46:56,547:INFO: Recording...
+2025-04-26 22:47:02,376:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:07,601:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:12,617:INFO: Average reward: 199.90 +/- 0.10
+2025-04-26 22:47:17,635:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:22,526:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:27,420:INFO: Average reward: 198.00 +/- 1.95
+2025-04-26 22:47:27,421:INFO: Recording...
+2025-04-26 22:47:33,210:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:38,157:INFO: Average reward: 198.60 +/- 1.36
+2025-04-26 22:47:43,320:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:47:48,147:INFO: Average reward: 191.00 +/- 8.77
+2025-04-26 22:47:53,057:INFO: Average reward: 190.14 +/- 6.65
+2025-04-26 22:47:58,045:INFO: Average reward: 146.69 +/- 11.13
+2025-04-26 22:47:58,046:INFO: Recording...
+2025-04-26 22:48:03,228:INFO: Average reward: 136.64 +/- 10.92
+2025-04-26 22:48:08,215:INFO: Average reward: 140.29 +/- 8.99
+2025-04-26 22:48:13,224:INFO: Average reward: 92.56 +/- 4.20
+2025-04-26 22:48:18,259:INFO: Average reward: 94.98 +/- 3.36
+2025-04-26 22:48:23,198:INFO: Average reward: 99.58 +/- 3.01
+2025-04-26 22:48:28,132:INFO: Average reward: 108.50 +/- 0.91
+2025-04-26 22:48:28,132:INFO: Recording...
+2025-04-26 22:48:33,650:INFO: Average reward: 117.15 +/- 1.21
+2025-04-26 22:48:38,489:INFO: Average reward: 130.87 +/- 2.09
+2025-04-26 22:48:43,386:INFO: Average reward: 147.22 +/- 3.08
+2025-04-26 22:48:48,244:INFO: Average reward: 181.05 +/- 4.80
+2025-04-26 22:48:53,105:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:48:58,077:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:48:58,077:INFO: Recording...
+2025-04-26 22:49:03,826:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:08,776:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:13,619:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:18,521:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:23,385:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:28,262:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:28,262:INFO: Recording...
+2025-04-26 22:49:33,940:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:38,794:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:43,768:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:48,661:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:53,609:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:58,629:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:49:58,630:INFO: Recording...
+2025-04-26 22:50:04,315:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:09,288:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:14,190:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:19,176:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:24,086:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:29,088:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:29,088:INFO: Recording...
+2025-04-26 22:50:34,958:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:40,007:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:45,080:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:50,036:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:54,962:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:59,939:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:50:59,939:INFO: Recording...
+2025-04-26 22:51:05,825:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:10,899:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:15,889:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:20,888:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:26,013:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:31,004:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:31,004:INFO: Recording...
+2025-04-26 22:51:36,743:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:41,795:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:46,888:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:52,003:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:51:57,055:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:02,090:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:02,090:INFO: Recording...
+2025-04-26 22:52:07,917:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:13,027:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:18,084:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:23,101:INFO: Average reward: 200.00 +/- 0.00
+2025-04-26 22:52:23,101:INFO: - Training done.
